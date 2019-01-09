@@ -3,11 +3,14 @@ from celery import Celery
 import time
 
 #app = Celery('tasks', broker='pyamqp://guest@localhost//')
+#app = Celery('tasks',
+#             broker='amqp://',
+#             backend='rpc://',
+#             include=['tasks'])
 app = Celery('tasks',
-             broker='amqp://',
+             broker='amqp://ankit:ankit123@localhost/ankit_vhost',
              backend='rpc://',
              include=['tasks'])
-
 @app.task
 def add(x, y):
     print('Wait time  begins')

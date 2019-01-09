@@ -43,14 +43,49 @@ To stop the broker or check its status, use rabbitmqctl.bat in sbin (as an admin
 Stopping the Node     ==> rabbitmqctl.bat stop
 Checking Node Status  ==> rabbitmqctl.bat status
 
+Seeting Up RabbitMQ : 
+
+D:\Study\rabbitmq_server-3.7.9\sbin>rabbitmqctl.bat add_user ankit ankit123
+Adding user "ankit" ...
+
+D:\Study\rabbitmq_server-3.7.9\sbin>rabbitmqctl.bat add_vhost ankit_vhost
+Adding vhost "ankit_vhost" ...
+
+D:\Study\rabbitmq_server-3.7.9\sbin>rabbitmqctl.bat set_user_tags ankit ankit_tag
+Setting tags for user "ankit" to [ankit_tag] ...
+
+D:\Study\rabbitmq_server-3.7.9\sbin>rabbitmqctl.bat set_permissions -p ankit_vhost ankit ".*" ".*" ".*"
+Setting permissions for user "ankit" in vhost "ankit_vhost" ...
+
+
+
 Celery is on the Python Package Index (PyPI), so it can be installed with standard Python tools like pip or easy_install:
 
 $ pip install celery
 
-
+---Fix for the issue : 
 ---D:\Study\Python\Projects\celeryproject\celeryproject\venv\Lib\site-packages\celery\backends  --> Change async file name to asynchronous
 
 ---Change rpc.py ---> import statement from async to asynchronous
+
+
+Running a worker Process: 
+
+celery -P solo -A tasks worker --loglevel=info
+
+There is bug into celery where it is not able to specify worker class automatically hence passing it through startup command: -P solo
+
+
+Running a test script: 
+
+(venv) D:\Study\Python\Projects\celeryproject\celeryproject>python  Test.py
+Task finished?  False
+Task result:  None
+Task finished?  True
+Task result:  101
+
+(venv) D:\Study\Python\Projects\celeryproject\celeryproject>
+
 
 
 

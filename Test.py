@@ -2,7 +2,7 @@ from tasks import add
 import time
 
 if __name__ == '__main__':
-    result = add.delay(1, 100)
+    result = add.delay(1, 1001)
     # at this time, our task is not finished, so it will return False
     print('Task finished? ', result.ready())
     print('Task result: ', result.result)

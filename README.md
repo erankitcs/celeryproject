@@ -86,6 +86,31 @@ Task result:  101
 
 (venv) D:\Study\Python\Projects\celeryproject\celeryproject>
 
+You can install Flower as well and keep tracking your request.
+
+>pip install flower
+
+Starting flower:
+
+(venv) D:\Study\Python\Projects\celeryproject\celeryproject>celery -A tasks flower
+[I 190109 21:45:23 command:139] Visit me at http://localhost:5555
+[I 190109 21:45:23 command:144] Broker: amqp://guest:**@localhost:5672//
+[I 190109 21:45:23 command:147] Registered tasks:
+    ['celery.accumulate',
+     'celery.backend_cleanup',
+     'celery.chain',
+     'celery.chord',
+     'celery.chord_unlock',
+     'celery.chunks',
+     'celery.group',
+     'celery.map',
+     'celery.starmap',
+     'tasks.add']
+[I 190109 21:45:23 mixins:224] Connected to amqp://guest:**@127.0.0.1:5672//
+
+
+
+ 
 
 
 

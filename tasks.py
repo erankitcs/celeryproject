@@ -10,11 +10,9 @@ app = Celery('tasks',
 
 @app.task
 def add(x, y):
-    print
-    'long time task begins'
+    print('Wait time  begins')
     # sleep 5 seconds
     time.sleep(5)
-    print
-    'long time task finished'
+    print('5 sec wait time  finished')
     return x + y
 
